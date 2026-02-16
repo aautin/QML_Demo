@@ -7,6 +7,7 @@
 class Settings : public QObject
 {
     Q_OBJECT
+
     Q_PROPERTY(QString firstName READ getFirstName WRITE setFirstName NOTIFY firstNameChanged)
     Q_PROPERTY(QString lastName READ getLastName WRITE setLastName NOTIFY lastNameChanged)
 
@@ -34,6 +35,11 @@ signals:
     void lastNameChanged() const;
 
 private:
+    //-----------------------------------//
+    // Internal operations               //
+    //-----------------------------------//
+    void loadName();
+
     //-----------------------------------//
     // Data                              //
     //-----------------------------------//

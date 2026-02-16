@@ -33,22 +33,26 @@ Page {
         }
 
         Components.MyInput {
+            id: firstName
             Layout.preferredWidth: 250
-            placeholder: "Firstname"
             accentColor: themeManager.accentColor
+
+            placeholder: "Firstname"
         }
 
         Components.MyInput {
+            id: lastName
             Layout.preferredWidth: 250
-            placeholder: "Lastname"
             accentColor: themeManager.accentColor
+
+            placeholder: "Lastname"
         }
 
         Components.MyButton {
             Layout.alignment: Qt.AlignHCenter
             text: "Save"
             color: themeManager.accentColor
-            onClicked: themeManager.saveTheme()
+            onClicked: { settings.firstName = firstName.text; settings.lastName = lastName.text }
         }
     }
 }
