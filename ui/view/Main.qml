@@ -106,21 +106,6 @@ ApplicationWindow {
                         themeManager.accentColor = selectedColor
                     }
                 }
-
-                Components.MyInput {
-                    id: input
-                    Layout.preferredWidth: 250
-                    placeholder: "Enter your name"
-                    onAccepted: console.log("Input accepted:", text)
-                    accentColor: themeManager.accentColor
-                }
-
-                Components.MyButton {
-                    id: colorButton
-                    Layout.alignment: Qt.AlignHCenter
-                    text: "Colored Button"
-                    color: themeManager.accentColor
-                }
             }
         }
 
