@@ -4,7 +4,7 @@ import QtQuick.Effects
 Rectangle {
     id: root
 
-    property color selectedColor: "#2196F3"
+    property color selectedColor: themeManager.accentColor
     property int size: 200
     property bool expanded: false
 
@@ -41,7 +41,7 @@ Rectangle {
         }
 
         Behavior on color {
-            ColorAnimation { duration: 200 }
+            ColorAnimation { duration: 1000 }
         }
 
         MouseArea {

@@ -9,7 +9,8 @@
 #include <QString>
 #include <QColor>
 
-class ThemeManager : public QObject {
+class ThemeManager : public QObject
+{
     Q_OBJECT
     Q_PROPERTY(QColor accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged)
     Q_PROPERTY(bool darkMode READ darkMode WRITE setDarkMode NOTIFY darkModeChanged)
@@ -17,32 +18,47 @@ class ThemeManager : public QObject {
     Q_PROPERTY(QColor textColor READ textColor NOTIFY textColorChanged)
 
 public:
+    //-----------------------------------//
+    // Constructors / Destructors        //
+    //-----------------------------------//
     explicit ThemeManager(QObject *parent = nullptr);
     ~ThemeManager();
 
-    // Геттеры
+    //-----------------------------------//
+    // Getters                           //
+    //-----------------------------------//
     QColor accentColor() const { return m_accentColor; }
     bool darkMode() const { return m_darkMode; }
     QColor backgroundColor() const { return m_backgroundColor; }
     QColor textColor() const { return m_textColor; }
 
-    // Сеттеры
+    //-----------------------------------//
+    // Setters                           //
+    //-----------------------------------//
     void setAccentColor(const QColor &color);
     void setDarkMode(bool enabled);
 
-    // Методы доступные из QML
+    //-----------------------------------//
+    // Invokables                        //
+    //-----------------------------------//
     Q_INVOKABLE void saveTheme();
     Q_INVOKABLE void loadTheme();
 
-    signals:
-        void accentColorChanged();
+signals:
+    void accentColorChanged();
     void darkModeChanged();
     void backgroundColorChanged();
     void textColorChanged();
 
 private:
+    //-----------------------------------//
+    // Internal operations               //
+    //-----------------------------------//
     void updateColors();
 
+    //-----------------------------------//
+    // Data                              //
+    //-----------------------------------//
     QColor m_accentColor;
     bool m_darkMode;
     QColor m_backgroundColor;

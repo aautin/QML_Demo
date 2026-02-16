@@ -1,16 +1,42 @@
-//
-// Created by kitbyte on 19.01.2025.
-//
+#pragma once
 
-#ifndef SETTINGS_H
-#define SETTINGS_H
+// Qt headers
+#include <QObject>
+#include <QString>
 
+class Settings : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QString firstName READ getFirstName WRITE setFirstName NOTIFY firstNameChanged)
+    Q_PROPERTY(QString lastName READ getLastName WRITE setLastName NOTIFY lastNameChanged)
 
+public:
+    //-----------------------------------//
+    // Constructors / Destructors        //
+    //-----------------------------------//
+    explicit Settings(QObject *parent = nullptr);
+    ~Settings();
 
-class Settings {
+    //-----------------------------------//
+    // Getters                           //
+    //-----------------------------------//
+    QString getFirstName() const { return m_pFirstName; }
+    QString getLastName() const { return m_pLastName; }
 
+    //-----------------------------------//
+    // Setters                           //
+    //-----------------------------------//
+    void setFirstName(QString firstName);
+    void setLastName(QString lastName);
+
+signals:
+    void firstNameChanged() const;
+    void lastNameChanged() const;
+
+private:
+    //-----------------------------------//
+    // Data                              //
+    //-----------------------------------//
+    QString m_pFirstName;
+    QString m_pLastName;
 };
-
-
-
-#endif //SETTINGS_H

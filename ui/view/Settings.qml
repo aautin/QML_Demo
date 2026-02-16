@@ -31,19 +31,19 @@ Page {
 
         Components.MyInput {
             Layout.preferredWidth: 250
-            placeholder: "Setting 1"
+            placeholder: "Firstname"
             accentColor: themeManager.accentColor
         }
 
         Components.MyInput {
             Layout.preferredWidth: 250
-            placeholder: "Setting 2"
+            placeholder: "Lastname"
             accentColor: themeManager.accentColor
         }
 
         Components.MyButton {
             Layout.alignment: Qt.AlignHCenter
-            text: "Save Settings"
+            text: "Save"
             color: themeManager.accentColor
             onClicked: themeManager.saveTheme()
         }

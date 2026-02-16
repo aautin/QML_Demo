@@ -1,6 +1,9 @@
 # QML Components Demo
+- A demo project showcasing Qt/QML application architecture with a proper project structure.
+- This project serves as an example of creating reusable QML components and a clean separation between **UI** and **app logic**
 
-A demo project showcasing Qt/QML application architecture with custom components, theme management, and proper project structure. This project serves as an example of creating reusable QML components and implementing a clean separation between UI and business logic.
+## ©️ Licences
+- The MIT License (MIT) Copyright © `2025` [k1tbyte](https://github.com/k1tbyte)
 
 ## 📋 Features
 
@@ -18,21 +21,12 @@ Qt_QML_Sample/
 ├── CMakeLists.txt
 ├── main.cpp
 ├── app/
-│   ├── Settings.cpp
-│   ├── Settings.h
-│   ├── ThemeManager.cpp
-│   ├── ThemeManager.h
-│   └── .... other infrastructure
+│   └── .... infrastructure
 └── ui/
     ├── components/
-    │   ├── ColorPicker.qml
-    │   ├── MyButton.qml
-    │   ├── MyInput.qml
-    │   └── .... other UI-components
+    │   └── .... UI-components
     └── view/
-        ├── Main.qml
-        ├── Settings.qml
-        └── ... pages, modals, windows, etc.
+        └── .... pages, modals, windows, etc.
 ```
 
 ## 🛠️ Building
@@ -130,4 +124,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-*This project serves as an example of modern Qt/QML application architecture and component design. Feel free to use it as a reference for your own projects.*
+*This project serves as an example of modern Qt/QML application architecture and component design.
+Feel free to use it as a reference for your own projects.*

@@ -1,16 +1,17 @@
-//
-// Created by kitbyte on 19.01.2025.
-//
-
 #include "ThemeManager.h"
+
+// Qt headers
 #include <QSettings>
 
-ThemeManager::ThemeManager(QObject *parent)
-    : QObject(parent)
-    , m_accentColor("#2196F3")
-    , m_darkMode(false)
-    , m_backgroundColor("#F5F5F5")
-    , m_textColor("#212121")
+//-----------------------------------//
+// Constructors / Destructors        //
+//-----------------------------------//
+ThemeManager::ThemeManager(QObject *parent):
+QObject(parent),
+m_accentColor("#2196F3"),
+m_darkMode(false),
+m_backgroundColor("#F5F5F5"),
+m_textColor("#212121")
 {
     loadTheme();
 }
@@ -20,9 +21,13 @@ ThemeManager::~ThemeManager()
     saveTheme();
 }
 
+//-----------------------------------//
+// Setters                           //
+//-----------------------------------//
 void ThemeManager::setAccentColor(const QColor &color)
 {
-    if (m_accentColor != color) {
+    if (m_accentColor != color)
+    {
         m_accentColor = color;
         emit accentColorChanged();
     }
@@ -30,13 +35,17 @@ void ThemeManager::setAccentColor(const QColor &color)
 
 void ThemeManager::setDarkMode(bool enabled)
 {
-    if (m_darkMode != enabled) {
+    if (m_darkMode != enabled)
+    {
         m_darkMode = enabled;
         updateColors();
         emit darkModeChanged();
     }
 }
 
+//-----------------------------------//
+// Invokables                        //
+//-----------------------------------//
 void ThemeManager::saveTheme()
 {
     QSettings settings;
@@ -55,12 +64,18 @@ void ThemeManager::loadTheme()
     settings.endGroup();
 }
 
+//-----------------------------------//
+// Internal operations               //
+//-----------------------------------//
 void ThemeManager::updateColors()
 {
-    if (m_darkMode) {
+    if (m_darkMode)
+    {
         m_backgroundColor = "#303030";
         m_textColor = "#FFFFFF";
-    } else {
+    }
+    else
+    {
         m_backgroundColor = "#F5F5F5";
         m_textColor = "#212121";
     }
