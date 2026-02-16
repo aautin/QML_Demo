@@ -2,7 +2,9 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Layouts
 import QtQuick.Controls.Basic
-import "../components" as Components
+
+import QML_Demo.ui.view.pages as Pages
+import QML_Demo.ui.components as Components
 
 ApplicationWindow {
     id: window
@@ -11,7 +13,6 @@ ApplicationWindow {
     visible: true
     title: "QML Components Demo"
 
-    // Use colors from ThemeManager
     color: themeManager.backgroundColor
 
     header: Rectangle {
@@ -30,56 +31,12 @@ ApplicationWindow {
                 color: "transparent"
             }
 
-            TabButton {
-                id: homeTab
+            Components.MyTabButton {
                 text: "Home"
-                height: parent.height
-
-                background: Rectangle {
-                    color: "transparent"
-                }
-
-                contentItem: Text {
-                    text: homeTab.text
-                    font.pixelSize: 14
-                    color: homeTab.checked ? themeManager.accentColor : themeManager.textColor
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                Rectangle {
-                    width: parent.width
-                    height: 2
-                    color: themeManager.accentColor
-                    anchors.bottom: parent.bottom
-                    visible: homeTab.checked
-                }
             }
 
-            TabButton {
-                id: settingsTab
+            Components.MyTabButton {
                 text: "Settings"
-                height: parent.height
-
-                background: Rectangle {
-                    color: "transparent"
-                }
-
-                contentItem: Text {
-                    text: settingsTab.text
-                    font.pixelSize: 14
-                    color: settingsTab.checked ? themeManager.accentColor : themeManager.textColor
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                Rectangle {
-                    width: parent.width
-                    height: 2
-                    color: themeManager.accentColor
-                    anchors.bottom: parent.bottom
-                    visible: settingsTab.checked
-                }
             }
         }
     }
@@ -88,30 +45,7 @@ ApplicationWindow {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        // Home Page
-        Page {
-            padding: 20
-            background: Rectangle {
-                color: "transparent"
-            }
-
-            ColumnLayout {
-                anchors.centerIn: parent
-                spacing: 20
-
-                Components.ColorPicker {
-                    Layout.alignment: Qt.AlignHCenter
-                    size: 250
-                    onColorSelected: function(selectedColor) {
-                        themeManager.accentColor = selectedColor
-                    }
-                }
-            }
-        }
-
-        // Settings Page
-        Settings {
-
-        }
+        Pages.Home {}
+        Pages.Settings {}
     }
 }

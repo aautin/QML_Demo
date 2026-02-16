@@ -30,12 +30,21 @@ add_executable(${PROJECT_NAME}
 qt_add_qml_module(${PROJECT_NAME}
         URI ${PROJECT_NAME}
         VERSION 1.0
+
         QML_FILES
         ui/view/Main.qml
-        ui/view/Settings.qml
+
+        ui/view/pages/Settings.qml
+        ui/view/pages/Home.qml
+
+        ui/components/MyTabButton.qml
         ui/components/MyButton.qml
         ui/components/MyInput.qml
         ui/components/ColorPicker.qml
+
+        RESOURCES
+        ui/components/qmldir
+        ui/view/pages/qmldir
 )
 
 target_link_libraries(${PROJECT_NAME}

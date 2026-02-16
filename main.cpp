@@ -19,24 +19,27 @@ int main(int argc, char *argv[])
     QGuiApplication::setOrganizationName("aautin");
     QGuiApplication::setApplicationName("QML demo");
 
+    const QString executableName = QFileInfo(QCoreApplication::applicationFilePath()).baseName();
+
     //
     // Linking C++ objects to the engine so the QML can access to them
     //
     QQmlApplicationEngine engine;
     auto *themeManager = new ThemeManager(&app);
     auto *settings = new Settings(&app);
+
     engine.rootContext()->setContextProperty("settings", settings);
     engine.rootContext()->setContextProperty("themeManager", themeManager);
+    engine.addImportPath(":/");
 
     //
     // Load the engine from the root QML and execute the app
     //
-    const QString executableName = QFileInfo(QCoreApplication::applicationFilePath()).baseName();
-    const QString qmlPath = QString("qrc:/qt/qml/%1/ui/view/Main.qml").arg(executableName);
-    engine.load(QUrl(qmlPath));
+    auto rootQmlPath = QString("qrc:/qt/qml/%1/ui/view/Main.qml").arg(executableName);
+    engine.load(rootQmlPath);
     if (engine.rootObjects().isEmpty())
     {
-        std::cerr << QString("No object in the root QML (%1)\n").arg(qmlPath).toStdString();
+        std::cerr << QString("No object in the root QML (%1)\n").arg(rootQmlPath).toStdString();
         return EXIT_FAILURE;
     }
     return app.exec();

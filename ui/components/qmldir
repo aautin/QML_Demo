@@ -1,4 +1,5 @@
-module Components
+module ui.components
+ColorPicker 1.0 ColorPicker.qml
 MyButton 1.0 MyButton.qml
 MyInput 1.0 MyInput.qml
-ColorPicker 1.0 ColorPicker.qml
+MyTabButton 1.0 MyTabButton.qml

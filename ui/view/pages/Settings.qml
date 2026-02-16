@@ -1,7 +1,10 @@
+// Qt headers
 import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls.Basic
-import "../components" as Components
+
+// Project headers
+import QML_Demo.ui.components as Components
 
 Page {
     id: settingsPage

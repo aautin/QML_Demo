@@ -1,3 +1,4 @@
+// Qt headers
 import QtQuick
 import QtQuick.Effects
 
