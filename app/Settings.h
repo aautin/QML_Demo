@@ -3,6 +3,7 @@
 // Qt headers
 #include <QObject>
 #include <QString>
+#include <QSettings>
 
 class Settings : public QObject
 {
@@ -43,6 +44,7 @@ private:
     //-----------------------------------//
     // Data                              //
     //-----------------------------------//
-    QString m_pFirstName;
-    QString m_pLastName;
+    QString   m_pFirstName;
+    QString   m_pLastName;
+    QSettings m_pSettings;
 };

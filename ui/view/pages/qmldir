@@ -1,3 +1,4 @@
 module ui.view.pages
+History 1.0 History.qml
 Home 1.0 Home.qml
 Settings 1.0 Settings.qml

@@ -29,7 +29,7 @@ Page {
             text: "%1 %2".arg(settings.firstName).arg(settings.lastName)
             Layout.alignment: Qt.AlignHCenter
             font.pixelSize: 26
-            color: themeManager.darkMode ? "white" : "black";
+            color: themeManager.textColor
         }
     }
 }

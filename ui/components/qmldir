@@ -1,4 +1,5 @@
 module ui.components
+ColorItem 1.0 ColorItem.qml
 ColorPicker 1.0 ColorPicker.qml
 MyButton 1.0 MyButton.qml
 MyInput 1.0 MyInput.qml

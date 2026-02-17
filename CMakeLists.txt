@@ -34,13 +34,16 @@ qt_add_qml_module(${PROJECT_NAME}
         QML_FILES
         ui/view/Main.qml
 
-        ui/view/pages/Settings.qml
-        ui/view/pages/Home.qml
 
-        ui/components/MyTabButton.qml
+        ui/view/pages/History.qml
+        ui/view/pages/Home.qml
+        ui/view/pages/Settings.qml
+
+        ui/components/ColorItem.qml
+        ui/components/ColorPicker.qml
         ui/components/MyButton.qml
         ui/components/MyInput.qml
-        ui/components/ColorPicker.qml
+        ui/components/MyTabButton.qml
 
         RESOURCES
         ui/components/qmldir

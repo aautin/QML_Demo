@@ -1,14 +1,12 @@
 #include "Settings.h"
 
-// Qt headers
-#include <QSettings>
-
 //-----------------------------------//
 // Constructors / Destructors        //
 //-----------------------------------//
 Settings::Settings(QObject *parent):
 QObject(parent)
 {
+    m_pSettings.beginGroup("Name");
     loadName();
 }
 
@@ -22,12 +20,14 @@ Settings::~Settings()
 void Settings::setFirstName(QString firstName)
 {
     m_pFirstName = firstName;
+    m_pSettings.setValue("firstName", m_pFirstName);
     emit firstNameChanged();
 }
 
 void Settings::setLastName(QString lastName)
 {
     m_pLastName = lastName;
+    m_pSettings.setValue("lastName", m_pLastName);
     emit lastNameChanged();
 }
 
@@ -36,16 +36,8 @@ void Settings::setLastName(QString lastName)
 //-----------------------------------//
 void Settings::loadName()
 {
-    QSettings settings1;
-    qDebug() << settings1.fileName();
-
-    QSettings settings;
-    settings.beginGroup("Name");
-
-    setFirstName(settings.value("firstName", "John").toString());
-    setLastName(settings.value("lastName", "Doe").toString());
-
-    settings.endGroup();
+    setFirstName(m_pSettings.value("firstName", "John").toString());
+    setLastName(m_pSettings.value("lastName", "Doe").toString());
 }
 
 

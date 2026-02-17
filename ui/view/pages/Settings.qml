@@ -52,7 +52,12 @@ Page {
             Layout.alignment: Qt.AlignHCenter
             text: "Save"
             color: themeManager.accentColor
-            onClicked: { settings.firstName = firstName.text; settings.lastName = lastName.text }
+            onClicked: {
+                settings.firstName = firstName.text
+                settings.lastName = lastName.text
+                firstName.text = ""
+                lastName.text = ""
+            }
         }
     }
 }

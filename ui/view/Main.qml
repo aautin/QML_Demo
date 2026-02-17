@@ -36,6 +36,10 @@ ApplicationWindow {
             }
 
             Components.MyTabButton {
+                text: "History"
+            }
+
+            Components.MyTabButton {
                 text: "Settings"
             }
         }
@@ -46,6 +50,7 @@ ApplicationWindow {
         currentIndex: tabBar.currentIndex
 
         Pages.Home {}
+        Pages.History {}
         Pages.Settings {}
     }
 }
