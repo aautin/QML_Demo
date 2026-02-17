@@ -2,9 +2,6 @@
 - A demo project showcasing Qt/QML application architecture with a proper project structure.
 - This project serves as an example of creating reusable QML components and a clean separation between **UI** and **app logic**
 
-## ©️ Licences
-- The MIT License (MIT) Copyright © `2025` [k1tbyte](https://github.com/k1tbyte)
-
 ## 📋 Features
 
 - Custom QML components demonstration
@@ -29,85 +26,37 @@ Qt_QML_Sample/
         └── .... pages, modals, windows, etc.
 ```
 
-## 🛠️ Building
+## 🛠️ Building prerequisites
 
-### Prerequisites
 - Qt 6.5.0 or higher
 - CMake 3.16 or higher
 - C++17 compatible compiler
-
-### Build Steps
-
-```bash
-mkdir build
-cd build
-cmake ..
-cmake --build .
-```
-❗Don't forget to add CMake Options:
-
--DCMAKE_PREFIX_PATH=`{Your path to the qt sdk}`\\`{version}`\mingw_64\lib\cmake
-
-You should also add `{version}\mingw_64\bin` to your PATH.
-
-Or you can modify the PATH locally for the project. Example: `PATH=%PATH%\;C:\Users\kitbyte\devtools\qt\6.8.1\mingw_64\bin`.
-
-With CLion, you can set this for a specific startup configuration: Go to Edit Configurations... -> Select Configuration -> Environment variables -> `PATH=%PATH%\;{path to \mingw_64\bin}`
+- QtCreator is optional but is strongly recommended
 
 ## 🎨 Components
 
-### ThemeManager
-Backend C++ class that manages application theming:
-```cpp
-class ThemeManager : public QObject {
-    Q_PROPERTY(QColor accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged)
-    Q_PROPERTY(bool darkMode READ darkMode WRITE setDarkMode NOTIFY darkModeChanged)
-    // ...
-};
-```
+### C++ ThemeManager
+A class that manages application theming:
+- Accent color
+- Dark mode
+- Background and font colors depending on dark mode
 
-### Custom QML Components (Created as an example)
+### C++ Settings
+A class that manages a firstname and a lastname:
+- Storing and getting from QSettings for persistent changes
+- Firstname and lastname accessibles through Q_PROPERTY 
+
+### Custom QML Components
 - **ColorPicker.qml**: Color selection component
-- **MyButton.qml**: Customized button component
-- **MyInput.qml**: Enhanced input field component
+- and so on...
 
-## 📝 Usage Example
 
-```qml
-import QtQuick
-import QtQuick.Controls.Basic
-import "../components"
+## ©️ Licences
+The basis of the project was taken from : `MIT License Copyright © 2025`
+- Author [k1tbyte](https://github.com/k1tbyte)
+- Repository [Qt-QML-Sample] (https://github.com/k1tbyte/Qt-QML-Sample)
 
-ApplicationWindow {
-    width: 640
-    height: 480
-    visible: true
-    
-    MyButton {
-        text: "Hello"
-        onClicked: console.log("Button clicked!")
-    }
-    
-    MyInput {
-        placeholder: "Enter text..."
-        onTextChanged: console.log("Text:", text)
-    }
-}
-```
-
-## 🔧 Configuration
-
-Theme configuration in main.cpp:
-```cpp
-auto* themeManager = new ThemeManager(&app);
-engine.rootContext()->setContextProperty("themeManager", themeManager);
-```
-
-## 👨‍💻 Author
-- [k1tbyte](https://github.com/k1tbyte)
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is now licensed under the MIT License of mine - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
