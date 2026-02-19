@@ -19,6 +19,12 @@ Settings::~Settings()
 //-----------------------------------//
 void Settings::setFirstName(QString firstName)
 {
+    if (firstName.isEmpty())
+    {
+        emit emptyField();
+        return;
+    }
+
     m_pFirstName = firstName;
     m_pSettings.setValue("firstName", m_pFirstName);
     emit firstNameChanged();
@@ -26,6 +32,12 @@ void Settings::setFirstName(QString firstName)
 
 void Settings::setLastName(QString lastName)
 {
+    if (lastName.isEmpty())
+    {
+        emit emptyField();
+        return;
+    }
+
     m_pLastName = lastName;
     m_pSettings.setValue("lastName", m_pLastName);
     emit lastNameChanged();

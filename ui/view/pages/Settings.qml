@@ -51,12 +51,30 @@ Page {
         Components.MyButton {
             Layout.alignment: Qt.AlignHCenter
             text: "Save"
-            color: themeManager.accentColor
             onClicked: {
+                warning.visible = false
                 settings.firstName = firstName.text
                 settings.lastName = lastName.text
                 firstName.text = ""
                 lastName.text = ""
+            }
+        }
+
+        Components.MyButton {
+            id: warning
+            Layout.alignment: Qt.AlignHCenter
+            color: "red"
+            text: "No empty fields are allowed"
+            visible: false
+            onClicked: {
+                warning.visible = false
+            }
+        }
+
+        Connections {
+            target: settings
+            onEmptyField: {
+                warning.visible = true
             }
         }
     }
