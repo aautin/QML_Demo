@@ -20,20 +20,18 @@ public:
     ~Settings();
 
     //-----------------------------------//
-    // Getters                           //
+    // Parameters                        //
     //-----------------------------------//
     QString getFirstName() const { return m_pFirstName; }
     QString getLastName() const { return m_pLastName; }
 
-    //-----------------------------------//
-    // Setters                           //
-    //-----------------------------------//
     void setFirstName(QString firstName);
     void setLastName(QString lastName);
 
 signals:
     void firstNameChanged() const;
     void lastNameChanged() const;
+    void emptyField() const;
 
 private:
     //-----------------------------------//

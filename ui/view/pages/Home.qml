@@ -5,6 +5,7 @@ import QtQuick.Controls.Basic
 
 // Project headers
 import QML_Demo.ui.components as Components
+import QML_Demo
 
 Page {
     padding: 20

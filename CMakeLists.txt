@@ -21,10 +21,17 @@ qt_policy(SET QTP0004 NEW)
 
 add_executable(${PROJECT_NAME}
         main.cpp
+
         app/ThemeManager.cpp
         app/ThemeManager.h
+
         app/Settings.cpp
         app/Settings.h
+)
+
+include_directories(${PROJECT_NAME}
+        PUBLIC
+        app/models
 )
 
 qt_add_qml_module(${PROJECT_NAME}
@@ -33,7 +40,6 @@ qt_add_qml_module(${PROJECT_NAME}
 
         QML_FILES
         ui/view/Main.qml
-
 
         ui/view/pages/History.qml
         ui/view/pages/Home.qml
@@ -48,6 +54,10 @@ qt_add_qml_module(${PROJECT_NAME}
         RESOURCES
         ui/components/qmldir
         ui/view/pages/qmldir
+
+        SOURCES
+        app/models/PairModel.h
+        app/models/PairModel.cpp
 )
 
 target_link_libraries(${PROJECT_NAME}
