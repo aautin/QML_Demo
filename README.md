@@ -4,26 +4,18 @@
 
 ## 🎬 Previews
 
-**Theme selection**
 
-![selector](./previews/colorSelection.gif)
+| Theme selection                            | Dark mode                            |
+|--------------------------------------------|--------------------------------------|
+| ![selector](./previews/colorSelection.gif) | ![selector](./previews/darkMode.gif) |
 
-**Dark mode**
+| Flex layouts                          | Name customization               |
+|---------------------------------------|----------------------------------|
+| ![selector](./previews/flexItems.gif) | ![selector](./previews/name.gif) |
 
-![darkmode](./previews/darkMode.gif)
-
-**Flexing items**
-
-![flex](./previews/flexItems.gif)
-
-**Name customization**
-
-![name](./previews/name.gif)
-
-**Persistente changes**
-
-![persistency](./previews/persistency.gif)
-
+| Persistente changes                     |
+|-----------------------------------------|
+| ![selector](./previews/persistency.gif) |
 
 ## 📋 Features
 
