@@ -2,6 +2,29 @@
 - A demo project showcasing Qt/QML application architecture with a proper project structure.
 - This project serves as an example of creating reusable QML components and a clean separation between **UI** and **app logic**
 
+## 🎬 Previews
+
+**Theme selection**
+
+![selector](./previews/colorSelection.gif)
+
+**Dark mode**
+
+![darkmode](./previews/darkMode.gif)
+
+**Flexing items**
+
+![flex](./previews/flexItems.gif)
+
+**Name customization**
+
+![name](./previews/name.gif)
+
+**Persistente changes**
+
+![persistency](./previews/persistency.gif)
+
+
 ## 📋 Features
 
 - Custom QML components demonstration
